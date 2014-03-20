@@ -95,11 +95,13 @@ public class ChatClientSupport {
     }
 
     public void login() {
-        session.write("LOGIN " + name);
+    	session.write("<TCP><Command>login</Command><PlayerID>"+name+"</PlayerID><DeskID>00000000</DeskID></TCP>" );
+        //session.write("LOGIN " + name);
     }
 
     public void broadcast(String message) {
-        session.write("BROADCAST " + message);
+        //session.write("BROADCAST " + message);
+    	session.write(message);
     }
 
     public void quit() {

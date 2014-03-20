@@ -53,7 +53,7 @@ public class ConnectDialog extends JDialog {
     public ConnectDialog(Frame owner) throws HeadlessException {
         super(owner, "Connect", true);
 
-        serverAddress = "localhost:1234";
+        serverAddress = "localhost:18567";
         username = "user" + Math.round(Math.random() * 10);
 
         final JTextField serverAddressField = new JTextField(serverAddress);
