@@ -29,6 +29,7 @@ import org.apache.mina.core.session.IoSession;
  * @author <a href="http://mina.apache.org">Apache MINA Project</a>
  */
 public class SwingChatClientHandler extends IoHandlerAdapter {
+	public static int i=0;
 
     public interface Callback {
         void connected();
@@ -59,6 +60,14 @@ public class SwingChatClientHandler extends IoHandlerAdapter {
     public void messageReceived(IoSession session, Object message)
             throws Exception {
         String theMessage = (String) message;
+        if(i==0){
+        	callback.loggedIn();
+        	callback.messageReceived(theMessage);
+        	i++;
+        }else{
+        	callback.messageReceived(theMessage);
+        }
+        /*
         String[] result = theMessage.split(" ", 3);
         String status = result[1];
         String theCommand = result[0];
@@ -87,6 +96,7 @@ public class SwingChatClientHandler extends IoHandlerAdapter {
                 callback.error(result[2]);
             }
         }
+        */
     }
 
     @Override
