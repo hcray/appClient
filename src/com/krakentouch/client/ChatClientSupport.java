@@ -95,7 +95,7 @@ public class ChatClientSupport {
     }
 
     public void login() {
-    	session.write("<TCP><Command>login</Command><PlayerID>"+name+"</PlayerID><DeskID>00000000</DeskID></TCP>" );
+    	session.write("<TCP><action>PlayerLogin</action><value><PlayerID>"+name+"</PlayerID><DeskID>00000000</DeskID></value></TCP>");
         //session.write("LOGIN " + name);
     }
 
