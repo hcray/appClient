@@ -35,7 +35,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -66,7 +66,7 @@ public class SwingChatClient extends JFrame implements Callback {
 
     private JTextArea area;
 
-    private JScrollBar scroll;
+    private JScrollPane scroll;
 
     private ChatClientSupport client;
 
@@ -90,8 +90,8 @@ public class SwingChatClient extends JFrame implements Callback {
         area = new JTextArea(10, 50);
         area.setLineWrap(true);
         area.setEditable(false);
-        scroll = new JScrollBar();
-        scroll.add(area);
+        scroll = new JScrollPane(area);
+        //scroll.add(area);
         nameField = new JTextField(10);
         nameField.setEditable(false);
         serverField = new JTextField(10);
@@ -118,7 +118,7 @@ public class SwingChatClient extends JFrame implements Callback {
 
         JPanel left = new JPanel();
         left.setLayout(new BoxLayout(left, BoxLayout.PAGE_AXIS));
-        left.add(area);
+        left.add(scroll);
         left.add(Box.createRigidArea(new Dimension(0, 5)));
         left.add(Box.createHorizontalGlue());
         left.add(inputText);
